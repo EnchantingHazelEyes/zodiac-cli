@@ -2,3 +2,5 @@
 
 
 require_relative "../lib/enivornment.rb"
+
+CLI.new.start
