@@ -3,11 +3,10 @@ class Zodiac
 
     @@all = []
 
-    def initialize(name)
-        @zodiac_name = [] 
-        @name = name
-        @birthday = birthday
-        @dates = dates
+    def initialize(zodiac_hash)
+        zodiac_hash.each do |key,value|
+            self.send("#{key}=", value) if self.respond_to?("#{key}=") 
+            end
         save
     end
 
