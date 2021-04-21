@@ -10,47 +10,103 @@ class CLI
     
     def intro
         puts "Welcome to the world of Zodiacs"
-        puts "Please enter a birthday in MM-DD format to find a Zodiac!"
-        puts "or enter exit to exit the program!"
+        puts "enter exit anytime to exit the program!"
+        puts " "
     end
 
     def user_input
         gets.strip
     end
+   
+    def options
+        puts "Please enter your birth month in MM format"
+        month = user_input
+    if month == "exit" then exit_program end
+   
+        puts "Please enter your day of birth in DD format to find a Zodiac!"
+        day = user_input
+    if day == "exit" then exit_program end 
+    
+    case 
+    when month == "12" && day < "22"
+         astro_sign =  "Sagittarius"
+    when month == "12" && day >= "22"
+         astro_sign =  "Capricorn"
 
-    def possible_dates
-        date1 = Date.strptime('2000-11-22', '%y-%m-%d')
-        date2 = Date.strptime('2000-12-21', '%y-%m-%d')
-       sag = (date1..date2).to_a
-    end
+    when month == "01" && day < "20"
+         astro_sign =  "Capricorn"
+    when month == "01" && day >= "20"
+         astro_sign =  "Aquarius"
 
-    def options 
-        response = user_input
+    when month == "02" && day < "19"
+         astro_sign =  "Aquarius"
+    when month == "02" && day >= "19"
+         astro_sign =  "Pisces"
+
+    when month == "03" && day < "21"
+         astro_sign =  "Pisces"
+    when month == "03" && day >= "21"
+         astro_sign =  "Aries"
         
-        if response ==  '12-01' #if date is valid, display zodiac name
-            zodiac_info
-            deeper_info      #provides deeper information for your zodiac
-        elsif response == "exit" #if exit is entered , application quits
-            exit_program
-        else
-            invalid_response1 #if invalid answer given, prompt for another answer
-            options
-        end
+    when month == "04" && day < "20"
+         astro_sign =  "Aries"
+    when month == "04" && day >= "20"
+         astro_sign =  "Taurus"
+    
+    when month == "05" && day < "21"
+         astro_sign =  "Taurus"
+    when month == "05" && day >= "21"
+         astro_sign =  "Gemini"
+        
+    when month == "06" && day < "21"
+         astro_sign =  "Gemini"
+    when month == "06" && day >= "21"
+         astro_sign =  "Cancer"
+        
+    when month == "07" && day < "23"
+         astro_sign =  "Cancer"
+    when month == "07" && day >= "23"
+         astro_sign =  "Leo"
+
+    when month == "08" && day < "23"
+         astro_sign =  "Leo"
+    when month == "08" && day >= "23"
+         astro_sign =  "Virgo"
+       
+    when month == "09" && day < "23"
+         astro_sign =  "Virgo"
+    when month == "09" && day >= "23"
+         astro_sign =  "Libra"
+           
+    when month == "10" && day < "23"
+         astro_sign =  "Libra"
+    when month == "10" && day >= "23"
+         astro_sign =  "Scorpio"
+           
+    when month == "11" && day < "22"
+         astro_sign =  "Scorpio"
+    when month == "11" && day >= "22"
+         astro_sign =  "Sagittarius"
+    
+    else
+       invalid_response1
+       options
+    end
+    if astro_sign != nil
+        puts "Your Zodiac is #{astro_sign}!"
+        deeper_info
     end
 
+end
+ 
     def invalid_response1
-        puts "Incorrect response, Please enter date in MM-DD format"
+        puts "Hmm something went wrong, Try again or enter exit to exit application"
     end
 
     def exit_program
         puts "Hope you enjoyed learning about your Zodiac! Come Again!"
+        exit
     end
-
-    def zodiac_info
-        zodiac_names = ["Sagittarius", "Capricorn", "Aquarius", "Pisces", 
-            "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo" , "Libra", "Scorpio"]
-        puts "Your Zodiac is #{zodiac_names[0]}!"
-        end
     
    def deeper_info #provides deeper information on your zodiac
         puts "If you want to know more about your zodiac, enter 'y', if you wish to exit, enter 'exit'"
