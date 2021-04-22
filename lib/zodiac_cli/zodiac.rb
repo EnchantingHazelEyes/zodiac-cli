@@ -1,12 +1,9 @@
 class Zodiac
-    attr_accessor :name , :birthday , :dates
+    attr_accessor :name , :dates
 
     @@all = []
-
-    def initialize(zodiac_hash)
-        zodiac_hash.each do |key,value|
-            self.send("#{key}=", value) if self.respond_to?("#{key}=") 
-            end
+    def initialize(name)
+       @name = name      
         save
     end
 
@@ -18,6 +15,9 @@ class Zodiac
         @@all
     end
 
-
-
+    def self.find_zodiac(zodiac_name)
+        self.all.detect do |zodiac|
+            zodiac.name == zodiac_name
+        end
+    end
 end

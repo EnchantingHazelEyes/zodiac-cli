@@ -1,9 +1,8 @@
 class CLI
-    
+
     def start 
         intro 
         API.get_data 
-        #input = user_input
         options
 
     end
@@ -18,16 +17,18 @@ class CLI
         gets.strip
     end
    
-    def options
+    def options 
         puts "Please enter your birth month in MM format"
         month = user_input
-    if month == "exit" then exit_program end
+           
+            if month == "exit" then exit_program end
    
         puts "Please enter your day of birth in DD format to find a Zodiac!"
         day = user_input
-    if day == "exit" then exit_program end 
+            
+            if day == "exit" then exit_program end 
     
-    case 
+    case  #checking through user input to declare what zodiac is user
     when month == "12" && day < "22"
          astro_sign =  "Sagittarius"
     when month == "12" && day >= "22"
@@ -92,8 +93,16 @@ class CLI
        invalid_response1
        options
     end
-    if astro_sign != nil
+
+   
+    if astro_sign != nil #if the user input is valid with zodiac, print zodiac and proceed to next step
         puts "Your Zodiac is #{astro_sign}!"
+        Zodiac.all.each do|astro_sign| 
+       zodiac = Zodiac.find_zodiac(astro_sign.name) 
+         
+       puts "Your daily horoscope #{astro_sign.name} "
+         end 
+       
         deeper_info
     end
 
@@ -103,16 +112,22 @@ end
         puts "Hmm something went wrong, Try again or enter exit to exit application"
     end
 
-    def exit_program
+    def exit_program 
         puts "Hope you enjoyed learning about your Zodiac! Come Again!"
         exit
     end
-    
+
+    def zodiac_deep_info
+       # zodiac = Zodiac.find_zodiac(astro_sign)
+        #puts "Your daily horoscope #{zodiac} "
+    end 
+
    def deeper_info #provides deeper information on your zodiac
         puts "If you want to know more about your zodiac, enter 'y', if you wish to exit, enter 'exit'"
         response = user_input
-        if response == "y" 
-            puts "Zodiac information"
+        if response == "y"
+         #   zodiac_deep_info
+            puts "zodiac info"
         elsif response == "exit"
             exit_program
         else

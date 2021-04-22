@@ -4,7 +4,11 @@
 
 require "bundler"
 Bundler.require
-require 'date'
+
+require 'uri'
+require 'net/http'
+require 'openssl'
+
 
 
 require_all "./lib/zodiac_cli"

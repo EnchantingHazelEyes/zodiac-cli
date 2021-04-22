@@ -1,8 +1,16 @@
 class API
+         
     def self.get_data
-        data_info = RestClient.get("https://www.horoscope.com/zodiac-signs/sagittarius")
-        data_info.body 
-      #  binding.pry
-    end
+       
+        response = RestClient.get("https://horoscopes-and-astrology.com/json")
+        zodiac_info = JSON.parse(response)["dailyhoroscope"]
+        zodiac_info.each do |zodiac|
+          Zodiac.new(zodiac)
 
+        #   binding.pry
+        end
+         
+         binding.pry
+         
+    end
 end
