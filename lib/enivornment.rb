@@ -8,8 +8,8 @@ Bundler.require
 require 'uri'
 require 'net/http'
 require 'openssl'
-
-
+require 'action_view'
+require 'erb'
+require 'active_support'
 
 require_all "./lib/zodiac_cli"
-#binding.pry 
