@@ -6,13 +6,10 @@ class API
         response = RestClient.get("https://horoscopes-and-astrology.com/json")
         zodiac_info = JSON.parse(response)["dailyhoroscope"]
        # strip_tags(zodiac_info)
-       # zodiac_info.each do |zodiac|
-            Zodiac.new(zodiac_info)
-          #  binding.pry
-        #end
-        
-     #  binding.pry
-         
+        Zodiac.new(zodiac_info)
+       # binding.pry
+        #end 
+    
     end
     
    # binding.pry

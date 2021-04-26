@@ -8,13 +8,13 @@ class CLI
     end
     
     def intro
-        puts "Welcome to the world of Zodiacs"
+        puts "Welcome to the world of Zodiac Horoscopes!"
         puts "enter exit anytime to exit the program!"
         puts " "
     end
 
     def user_input
-        gets.strip
+        gets.strip.downcase
     end
    
     def options 
@@ -28,7 +28,6 @@ class CLI
             
             if day == "exit" then exit_program end 
     
-  #  astro_sign = []
     case  #checking through user input to declare what zodiac is user
     when month == "12" && day < "22" && day > "00"
          astro_sign = "Sagittarius"
@@ -94,13 +93,14 @@ class CLI
        invalid_response1
        options
     end
-    if astro_sign != nil #if the user input is valid with zodiac, print zodiac and proceed to next step
+    if astro_sign != nil #user input is valid with zodiac, print zodiac and proceed to next step
         puts "\nYour Zodiac is #{astro_sign}!" 
-        
         deeper_info(astro_sign)
-        #zodiac_deep_info(astro_sign)
-        play_again
-    end
+    end 
+      #  Zodiac.all.each do (astro_sign)
+       #     puts "\nYour #{astro_sign}"
+        #end
+        
     
 end
 
@@ -115,12 +115,10 @@ end
     end
 
     def zodiac_deep_info(astro_sign)
-       
-       # Zodiac.all.each do |astro_sign|
+
         case
         when astro_sign == "Sagittarius" 
-              puts "Your daily horoscope is "
-              puts sag 
+              puts sag
         when astro_sign == "Capricorn" 
               puts cap
         when astro_sign == "Aquarius" 
@@ -146,12 +144,12 @@ end
         end 
         
     #  binding.pry
-        #end 
    end  
 
     def print_info(zodiac)
-        
-        puts "\nYour daily horoscope #{zodiac}"
+        Zodiac.all.each do (zodiac)
+        zodiac.name
+        end 
     end 
 
 
@@ -159,8 +157,9 @@ end
         puts "\nIf you want to know more about your zodiac, enter 'y', if you wish to exit, enter 'exit'"
         response = user_input
         if response == "y"
+            puts ("\nYour daily horoscope is ... ")
             zodiac_deep_info(astro_sign)
-          #  puts "zodiac info"
+            play_again
         elsif response == "exit"
             exit_program
         else
@@ -186,77 +185,126 @@ end
             play_again
         end 
    end 
-   def sag
-    Zodiac.all.each do |astro_sign|
-      puts  "\n#{astro_sign.Sagittarius}"
-    end            
-    end
+   
+
+        def sag
+        Zodiac.all.map do |astro_sign|
+            astro_sign1 = (astro_sign.Sagittarius).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Sagittatius" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end   
+         Zodiac.name;nil 
+         end
     
-    def cap 
+      def cap 
         Zodiac.all.each do |astro_sign|
-            puts ("\nYour daily horoscope is ... ")
-          puts  "\n#{astro_sign.Capricorn}\n"
-        end            
+            astro_sign1 = (astro_sign.Capricorn).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Capricon" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end     
+        Zodiac.name;nil        
         end
 
      def aqua 
         Zodiac.all.each do |astro_sign|
-          puts  "\n#{astro_sign.Aquarius}"
-        end            
+            astro_sign1 = (astro_sign.Aquarius).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Aquarius" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end     
+        Zodiac.name;nil        
         end
 
          def pis 
         Zodiac.all.each do |astro_sign|
-          puts  "\n#{astro_sign.Pisces}"
-        end            
+            astro_sign1 = (astro_sign.Pisces).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Pisces" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end    
+        Zodiac.name;nil         
         end
 
          def ari 
         Zodiac.all.each do |astro_sign|
-          puts  "\n#{astro_sign.Aries}"
-        end            
+            astro_sign1 = (astro_sign.Aries).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Aries" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end   
+        Zodiac.name;nil          
         end
 
          def tau 
         Zodiac.all.each do |astro_sign|
-          puts  "\n#{astro_sign.Taurus}"
-        end            
+            astro_sign1 = (astro_sign.Taurus).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Taurus" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end
+        Zodiac.name;nil             
         end
 
          def geme 
         Zodiac.all.each do |astro_sign|
-          puts  "\n#{astro_sign.Gemini}"
-        end            
+            astro_sign1 = (astro_sign.Gemini).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Gemini" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end    
+        Zodiac.name;nil         
         end
 
          def can 
         Zodiac.all.each do |astro_sign|
-          puts  "\n#{astro_sign.Cancer}"
-        end            
+            astro_sign1 = (astro_sign.Cancer).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Cancer" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end     
+        Zodiac.name;nil        
         end
 
          def le 
         Zodiac.all.each do |astro_sign|
-          puts  "\n#{astro_sign.Leo}"
-        end            
+            astro_sign1 = (astro_sign.Leo).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Leo" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end     
+        Zodiac.name;nil        
         end
 
          def vir 
         Zodiac.all.each do |astro_sign|
-          puts  "\n#{astro_sign.Virgo}"
-        end            
+            astro_sign1 = (astro_sign.Virgo).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Virgo" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end   
+        Zodiac.name;nil          
         end
 
          def libr 
         Zodiac.all.each do |astro_sign|
-          puts  "\n#{astro_sign.Libra}"
-        end            
+            astro_sign1 = (astro_sign.Libra).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Libra" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end  
+        Zodiac.name;nil           
         end
 
          def sco 
         Zodiac.all.each do |astro_sign|
-          puts  "\n#{astro_sign.Scorpio}"
-        end            
+            astro_sign1 = (astro_sign.Scorpio).gsub!(/#{URI::regexp}/, '') 
+            astro_sign2 = (astro_sign1).chomp("</i></a>")
+            astro_sign3 = (astro_sign2).gsub!(/(<a href="" alt="Scorpio" target="_blank"> <i>Read more...)/, '')
+          puts  "\n#{astro_sign3}"
+        end     
+        Zodiac.name;nil        
         end
 
 end

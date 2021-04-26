@@ -1,9 +1,10 @@
 class Zodiac
     attr_accessor :name, :Aries, :Taurus,:Gemini,:Cancer,:Leo,:Virgo,
-   :Libra,:Scorpio,:Sagittarius,:Capricorn,:Aquarius,:Pisces, :dailyhoroscope
+   :Libra,:Scorpio,:Sagittarius,:Capricorn,:Aquarius,:Pisces
 
     @@all = []
     def initialize(name_hash)
+      # @name = name
        name_hash.each do |key,value|
        self.send("#{key}=",value) if self.respond_to?("#{key}=")
         end  
@@ -18,12 +19,13 @@ class Zodiac
         @@all
     end
 
-    def self.find_zodiac(zodiac)
-        self.all.detect do |zodiac_name|
-            zodiac == zodiac_name
-        end
+  #  def self.find_zodiac(zodiac)
+   #     self.all.detect do |zodiac_name|
+    #        zodiac.name == zodiac_name
+ #       end
     
   #  binding.pry
     
-    end
+  #  end
+    
 end
