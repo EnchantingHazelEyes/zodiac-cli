@@ -3,8 +3,7 @@ class Zodiac
    :Libra,:Scorpio,:Sagittarius,:Capricorn,:Aquarius,:Pisces
 
     @@all = []
-    def initialize(name_hash)
-      # @name = name
+    def initialize(name_hash) #calls upon and initialize every attribute instead of doing individually
        name_hash.each do |key,value|
        self.send("#{key}=",value) if self.respond_to?("#{key}=")
         end  
@@ -18,14 +17,5 @@ class Zodiac
     def self.all
         @@all
     end
-
-  #  def self.find_zodiac(zodiac)
-   #     self.all.detect do |zodiac_name|
-    #        zodiac.name == zodiac_name
- #       end
-    
-  #  binding.pry
-    
-  #  end
     
 end

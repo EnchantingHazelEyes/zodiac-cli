@@ -1,108 +1,104 @@
 class CLI
 
-    def start 
+    def start #Starts the whole program
         intro 
-        API.get_data 
         options
-
     end
     
-    def intro
-        puts "Welcome to the world of Zodiac Horoscopes!"
-        puts "enter exit anytime to exit the program!"
+    def intro #provides welcome and retrieves API
+        puts "\nWelcome to the world of Zodiac Horoscopes!"
+        puts "Where you will find your daily Horoscope"
+        puts "\nEnter 'exit' anytime to exit the program!"
         puts " "
+        API.get_data 
     end
 
-    def user_input
+    def user_input # user inputs dada and it converts to lowercase if needed
         gets.strip.downcase
     end
    
-    def options 
+    def options #provides all options for zodiac information
         puts "Please enter your birth month in MM format"
-        month = user_input
+        month = user_input 
            
-            if month == "exit" then exit_program end
+            if month == "exit" then exit_program end 
    
         puts "Please enter your day of birth in DD format to find a Zodiac!"
         day = user_input
             
             if day == "exit" then exit_program end 
     
-    case  #checking through user input to declare what zodiac is user
-    when month == "12" && day < "22" && day > "00"
-         astro_sign = "Sagittarius"
-    when month == "12" && day >= "22" && day < "32"
-         astro_sign =  "Capricorn"
-         
-    when month == "01" && day < "20"  && day > "00" 
-         astro_sign =  "Capricorn" 
-    when month == "01" && day >= "20" && day < "32"
-         astro_sign =  "Aquarius"
+            case  #checking through user input to declare what zodiac is user
+                when month == "12" && day < "22" && day > "00"
+                astro_sign = "Sagittarius"
+                when month == "12" && day >= "22" && day < "32"
+                astro_sign =  "Capricorn"
+                
+                when month == "01" && day < "20"  && day > "00" 
+                astro_sign =  "Capricorn" 
+                when month == "01" && day >= "20" && day < "32"
+                astro_sign =  "Aquarius"
 
-    when month == "02" && day < "19" && day > "00"
-         astro_sign = "Aquarius"
-    when month == "02" && day >= "19" && day < "30"
-         astro_sign =  "Pisces"
+                when month == "02" && day < "19" && day > "00"
+                astro_sign = "Aquarius"
+                when month == "02" && day >= "19" && day < "30"
+                astro_sign =  "Pisces"
 
-    when month == "03" && day < "21" && day > "00"
-         astro_sign =  "Pisces"
-    when month == "03" && day >= "21" && day < "32"
-         astro_sign =  "Aries"
-        
-    when month == "04" && day < "20"  && day > "00"
-         astro_sign =  "Aries"
-    when month == "04" && day >= "20" && day < "31"
-         astro_sign =  "Taurus"
-    
-    when month == "05" && day < "21" && day > "00"
-         astro_sign = "Taurus"
-    when month == "05" && day >= "21" && day < "32"
-         astro_sign =  "Gemini"
-        
-    when month == "06" && day < "21" && day > "00"
-         astro_sign =  "Gemini"
-    when month == "06" && day >= "21" && day < "31"
-         astro_sign =  "Cancer"
-        
-    when month == "07" && day < "23" && day > "00"
-         astro_sign =  "Cancer"
-    when month == "07" && day >= "23" && day < "32"
-         astro_sign =  "Leo"
+                when month == "03" && day < "21" && day > "00"
+                astro_sign =  "Pisces"
+                when month == "03" && day >= "21" && day < "32"
+                astro_sign =  "Aries"
+                
+                when month == "04" && day < "20"  && day > "00"
+                astro_sign =  "Aries"
+                when month == "04" && day >= "20" && day < "31"
+                astro_sign =  "Taurus"
+            
+                when month == "05" && day < "21" && day > "00"
+                astro_sign = "Taurus"
+                when month == "05" && day >= "21" && day < "32"
+                astro_sign =  "Gemini"
+                
+                when month == "06" && day < "21" && day > "00"
+                astro_sign =  "Gemini"
+                when month == "06" && day >= "21" && day < "31"
+                astro_sign =  "Cancer"
+                
+                when month == "07" && day < "23" && day > "00"
+                astro_sign =  "Cancer"
+                when month == "07" && day >= "23" && day < "32"
+                astro_sign =  "Leo"
 
-    when month == "08" && day < "23" && day > "00"
-         astro_sign =  "Leo"
-    when month == "08" && day >= "23" && day < "32"
-         astro_sign =  "Virgo"
-       
-    when month == "09" && day < "23" && day > "00"
-         astro_sign =  "Virgo"
-    when month == "09" && day >= "23" && day < "31"
-         astro_sign =  "Libra"
-           
-    when month == "10" && day < "23" && day > "00"
-         astro_sign =  "Libra"
-    when month == "10" && day >= "23" && day < "32"
-         astro_sign =  "Scorpio"
-           
-    when month == "11" && day < "22" && day > "00"
-         astro_sign =  "Scorpio"
-    when month == "11" && day >= "22" && day < "31"
-         astro_sign = "Sagittarius"
-    
-    else
-       invalid_response1
-       options
+                when month == "08" && day < "23" && day > "00"
+                astro_sign =  "Leo"
+                when month == "08" && day >= "23" && day < "32"
+                astro_sign =  "Virgo"
+            
+                when month == "09" && day < "23" && day > "00"
+                astro_sign =  "Virgo"
+                when month == "09" && day >= "23" && day < "31"
+                astro_sign =  "Libra"
+                
+                when month == "10" && day < "23" && day > "00"
+                astro_sign =  "Libra"
+                when month == "10" && day >= "23" && day < "32"
+                astro_sign =  "Scorpio"
+                
+                when month == "11" && day < "22" && day > "00"
+                astro_sign =  "Scorpio"
+                when month == "11" && day >= "22" && day < "31"
+                astro_sign = "Sagittarius"
+            
+                else
+                invalid_response1 #prints invalid if numbers inputted do not result in Zodiac name
+                options #loops 
+                end
+            if astro_sign != nil #user input is valid with zodiac, print zodiac and proceed to next step
+                puts "\nYour Zodiac is #{astro_sign}!" 
+                deeper_info(astro_sign)
+            end 
+                
     end
-    if astro_sign != nil #user input is valid with zodiac, print zodiac and proceed to next step
-        puts "\nYour Zodiac is #{astro_sign}!" 
-        deeper_info(astro_sign)
-    end 
-      #  Zodiac.all.each do (astro_sign)
-       #     puts "\nYour #{astro_sign}"
-        #end
-        
-    
-end
 
  
     def invalid_response1
@@ -114,68 +110,63 @@ end
         exit
     end
 
-    def zodiac_deep_info(astro_sign)
+    def zodiac_deep_info(astro_sign) #cycles through to compare zodiac user recieve with zodiac from hash/website and prints horoscope
 
         case
-        when astro_sign == "Sagittarius" 
-              puts sag
-        when astro_sign == "Capricorn" 
-              puts cap
-        when astro_sign == "Aquarius" 
+            when astro_sign == "Sagittarius" 
+                puts sag
+            when astro_sign == "Capricorn" 
+                puts cap
+            when astro_sign == "Aquarius" 
                 puts aqua
-        when astro_sign == "Pisces" 
+            when astro_sign == "Pisces" 
                 puts pis
-        when astro_sign == "Aries" 
+            when astro_sign == "Aries" 
                 puts ari
-        when astro_sign == "Taurus" 
+            when astro_sign == "Taurus" 
                 puts tau
-        when astro_sign == "Gemini" 
+            when astro_sign == "Gemini" 
                 puts geme
-        when astro_sign == "Cancer" 
+            when astro_sign == "Cancer" 
                 puts can
-        when astro_sign == "Leo" 
+            when astro_sign == "Leo" 
                 puts le 
-        when astro_sign == "Virgo" 
+            when astro_sign == "Virgo" 
                 puts vir
-        when astro_sign == "Libra" 
+            when astro_sign == "Libra" 
                 puts libr
-        when astro_sign == "Scorpio" 
+            when astro_sign == "Scorpio" 
                 puts sco             
-        end 
-        
-    #  binding.pry
+            end 
    end  
-
-    def print_info(zodiac)
-        Zodiac.all.each do (zodiac)
-        zodiac.name
-        end 
-    end 
 
 
    def deeper_info(astro_sign) #provides deeper information on your zodiac
-        puts "\nIf you want to know more about your zodiac, enter 'y', if you wish to exit, enter 'exit'"
+        puts "\nIf you want your daily Horoscope, enter 'y', if you wish to exit, enter 'exit'"
         response = user_input
+        
         if response == "y"
             puts ("\nYour daily horoscope is ... ")
-            zodiac_deep_info(astro_sign)
-            play_again
+            zodiac_deep_info(astro_sign) #invokes cycle that primts horscopes
+            play_again #loops
         elsif response == "exit"
             exit_program
         else
-            invalid_response2
+            invalid_response2 # user enters in any invalid responses will loop again
             deeper_info
         end 
+
     end 
 
    def invalid_response2
         puts "\nInvalid response, enter 'y' to see more information, or 'exit' to exit application"
    end
 
-   def play_again
+   def play_again #invokes loop back to options to try another month / day / zodiac for new horoscope
     puts "\nDo you want to know about another zodiac?"
     puts "enter 'y' to play again, or 'exit' to exit application"
     response = user_input
+       
         if response == "y"
             options
         elsif response == "exit" 
@@ -184,10 +175,12 @@ end
             invalid_response2
             play_again
         end 
+
    end 
    
+   #### the following methods removes all extra html tags and characters from the hash/string 
 
-        def sag
+    def sag
         Zodiac.all.map do |astro_sign|
             astro_sign1 = (astro_sign.Sagittarius).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -195,9 +188,9 @@ end
           puts  "\n#{astro_sign3}"
         end   
          Zodiac.name;nil 
-         end
+    end
     
-      def cap 
+    def cap 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Capricorn).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -205,9 +198,9 @@ end
           puts  "\n#{astro_sign3}"
         end     
         Zodiac.name;nil        
-        end
+    end
 
-     def aqua 
+    def aqua 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Aquarius).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -215,9 +208,9 @@ end
           puts  "\n#{astro_sign3}"
         end     
         Zodiac.name;nil        
-        end
+    end
 
-         def pis 
+    def pis 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Pisces).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -225,9 +218,9 @@ end
           puts  "\n#{astro_sign3}"
         end    
         Zodiac.name;nil         
-        end
+    end
 
-         def ari 
+    def ari 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Aries).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -235,9 +228,9 @@ end
           puts  "\n#{astro_sign3}"
         end   
         Zodiac.name;nil          
-        end
+    end
 
-         def tau 
+    def tau 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Taurus).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -245,9 +238,9 @@ end
           puts  "\n#{astro_sign3}"
         end
         Zodiac.name;nil             
-        end
+    end
 
-         def geme 
+    def geme 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Gemini).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -255,9 +248,9 @@ end
           puts  "\n#{astro_sign3}"
         end    
         Zodiac.name;nil         
-        end
+    end
 
-         def can 
+    def can 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Cancer).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -265,9 +258,9 @@ end
           puts  "\n#{astro_sign3}"
         end     
         Zodiac.name;nil        
-        end
+    end
 
-         def le 
+    def le 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Leo).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -275,9 +268,9 @@ end
           puts  "\n#{astro_sign3}"
         end     
         Zodiac.name;nil        
-        end
+    end
 
-         def vir 
+    def vir 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Virgo).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -285,9 +278,9 @@ end
           puts  "\n#{astro_sign3}"
         end   
         Zodiac.name;nil          
-        end
+    end
 
-         def libr 
+    def libr 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Libra).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -295,9 +288,9 @@ end
           puts  "\n#{astro_sign3}"
         end  
         Zodiac.name;nil           
-        end
+    end
 
-         def sco 
+    def sco 
         Zodiac.all.each do |astro_sign|
             astro_sign1 = (astro_sign.Scorpio).gsub!(/#{URI::regexp}/, '') 
             astro_sign2 = (astro_sign1).chomp("</i></a>")
@@ -305,6 +298,6 @@ end
           puts  "\n#{astro_sign3}"
         end     
         Zodiac.name;nil        
-        end
+    end
 
 end

@@ -1,8 +1,6 @@
 # ZodiacCli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/zodiac_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Zodiac Gem, this gem will help you see your daily horoscope using an API!
 
 ## Installation
 
@@ -22,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+ZodiacCLI will allow a user to input a Month then Date and will print their Zodiac
+After it will prompt the user to input whether they would like to know their Horoscope or exit the pogram
+Once Horoscope is printed, user will be prompted if they wish to play again with new dates or exit the porgram
 
 ## Development
 
